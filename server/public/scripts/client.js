@@ -1,5 +1,6 @@
 console.log('client.js is sourced!');
 
+let operator = '';
 onReady();
 
 function onReady() {
@@ -26,4 +27,26 @@ function getCalculations() {
     }).catch(function (error){
         console.log('error', error);
     });
+}
+
+function add(event) {
+    event.preventDefault();
+    operator = '+';
+    // console.log('add button clicked');
+}
+
+function subtract(event) {
+    event.preventDefault();
+    operator = '-';
+}
+
+function multiply(event) {
+    event.preventDefault();
+    operator = '*';
+}
+
+function divide(event) {
+    event.preventDefault();
+    operator = '/';
+    // console.log('operator', operator);
 }
