@@ -66,6 +66,8 @@ function equals(event) {
     }).then(function(response) {
         // console.log('response is good', response);
         getCalculations();
+        document.getElementById('first-number').value = '';
+        document.getElementById('second-number').value = '';
     }).catch(function(error) {
         console.log('error', error);
     });
