@@ -23,6 +23,39 @@ app.get('/calculations', function(req, res){
 
 // POST /calculations
 
+app.post('/calculations', function(req, res){
+  let numOne = req.body.numOne;
+  let numTwo = req.body.numTwo;
+  let operator = req.body.operator;
+  // console.log('numOne', numOne);
+  // console.log('numTwo', numTwo);
+  // console.log('operator', operator);
+  let result;
+  switch (operator) {
+    case '+':
+      result = numOne + numTwo;
+      break;
+    case '-':
+      result = numOne - numTwo;
+      break;
+    case '*':
+      result = numOne * numTwo;
+      break;
+    case '/':
+      result = numOne / numTwo;
+      break;
+  }
+  // console.log('result', result);
+  calculations.push({
+    numOne: numOne,
+    numTwo: numTwo,
+    operator: operator,
+    result: result
+  });
+
+  res.send(201);
+})
+
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸

@@ -1,4 +1,4 @@
-console.log('client.js is sourced!');
+// console.log('client.js is sourced!');
 
 let operator = '';
 onReady();
@@ -12,7 +12,7 @@ function getCalculations() {
         method: 'GET',
         url: '/calculations'
     }).then(function (response){
-        console.log('Response is good', response);
+        // console.log('Response is good', response);
         let calculationHistory = response.data;
         // put the result on the DOM
         document.getElementById('resultHistory').innerHTML = '';
@@ -49,4 +49,24 @@ function divide(event) {
     event.preventDefault();
     operator = '/';
     // console.log('operator', operator);
+}
+
+function equals(event) {
+    event.preventDefault();
+    let numOne = Number(document.getElementById('first-number').value);
+    let numTwo = Number(document.getElementById('second-number').value);
+    axios({
+        method: 'POST',
+        url: '/calculations',
+        data: {
+            numOne: numOne,
+            numTwo: numTwo,
+            operator: operator
+        }
+    }).then(function(response) {
+        // console.log('response is good', response);
+        getCalculations();
+    }).catch(function(error) {
+        console.log('error', error);
+    });
 }

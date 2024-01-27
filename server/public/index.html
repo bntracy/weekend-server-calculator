@@ -10,13 +10,13 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
-      <input placeholder="First Number">
+      <input placeholder="First Number" id="first-number" type="number">
       <button onclick="add(event)">+</button>
       <button onclick="subtract(event)">-</button>
       <button onclick="multiply(event)">*</button>
       <button onclick="divide(event)">/</button>
-      <input placeholder="Second Number">
-      <button>=</button>
+      <input placeholder="Second Number" id="second-number" type="number">
+      <button onclick="equals(event)">=</button>
       <button>C</button>
     </form>
 
