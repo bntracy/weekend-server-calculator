@@ -33,7 +33,7 @@ app.post('/calculations', function(req, res){
   let result;
   switch (operator) {
     case '+':
-      result = numOne + numTwo;
+      result = Number(numOne) + Number(numTwo);
       break;
     case '-':
       result = numOne - numTwo;
