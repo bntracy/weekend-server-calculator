@@ -72,3 +72,9 @@ function equals(event) {
         console.log('error', error);
     });
 }
+
+function clearInputs(event) {
+    event.preventDefault();
+    document.getElementById('first-number').value = '';
+    document.getElementById('second-number').value = '';
+}
