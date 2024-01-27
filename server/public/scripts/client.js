@@ -53,8 +53,26 @@ function divide(event) {
 
 function equals(event) {
     event.preventDefault();
-    let numOne = Number(document.getElementById('first-number').value);
-    let numTwo = Number(document.getElementById('second-number').value);
+    let numOne = document.getElementById('first-number').value;
+    let numTwo = document.getElementById('second-number').value;
+    if (operator === '') {
+        alert("Please select an operator (+, -, *, /)");
+        return false;
+    }
+    if (numOne === '') {
+        alert("Please enter your first number");
+        return false;
+    }
+    if (numTwo === '') {
+        alert("Please enter your second number");
+        return false;
+    }
+    if (numTwo == 0 && operator === '/') {
+        alert("Cannot divide by zero");
+        return false;
+    }
+    numOne = Number(numOne);
+    numTwo = Number(numTwo);
     axios({
         method: 'POST',
         url: '/calculations',
@@ -68,6 +86,8 @@ function equals(event) {
         getCalculations();
         document.getElementById('first-number').value = '';
         document.getElementById('second-number').value = '';
+        operator = '';
+
     }).catch(function(error) {
         console.log('error', error);
     });
