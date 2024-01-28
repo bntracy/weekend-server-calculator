@@ -13,31 +13,31 @@
     <form class="calculator">
         <div>
             <input type="text" id="inputBox" disabled>
-            <button>C</button>
+            <button onclick="clearInput(event)">C</button>
         </div>
         <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>+</button>
+            <button onclick="addInput(event)">7</button>
+            <button onclick="addInput(event)">8</button>
+            <button onclick="addInput(event)">9</button>
+            <button onclick="addInput(event)">+</button>
         </div>
         <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
+            <button onclick="addInput(event)">4</button>
+            <button onclick="addInput(event)">5</button>
+            <button onclick="addInput(event)">6</button>
+            <button onclick="addInput(event)">-</button>
         </div>
         <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>*</button>
+            <button onclick="addInput(event)">1</button>
+            <button onclick="addInput(event)">2</button>
+            <button onclick="addInput(event)">3</button>
+            <button onclick="addInput(event)">*</button>
         </div>
         <div>
-            <button>0</button>
-            <button>.</button>
-            <button>=</button>
-            <button>/</button>
+            <button onclick="addInput(event)">0</button>
+            <button onclick="addInput(event)">.</button>
+            <button onclick="equals(event)">=</button>
+            <button onclick="addInput(event)">/</button>
         </div>
     </form>
     <section data-testid="recentResult" id="recentResult">
