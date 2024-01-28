@@ -16,28 +16,28 @@
             <button onclick="clearInput(event)">C</button>
         </div>
         <div>
-            <button onclick="addInput(event)">7</button>
-            <button onclick="addInput(event)">8</button>
-            <button onclick="addInput(event)">9</button>
-            <button onclick="addInput(event)">+</button>
+            <button class="digit" onclick="addInput(event)">7</button>
+            <button class="digit" onclick="addInput(event)">8</button>
+            <button class="digit" onclick="addInput(event)">9</button>
+            <button id="add-button" class="operator" onclick="addInput(event)">+</button>
         </div>
         <div>
-            <button onclick="addInput(event)">4</button>
-            <button onclick="addInput(event)">5</button>
-            <button onclick="addInput(event)">6</button>
-            <button onclick="addInput(event)">-</button>
+            <button class="digit" onclick="addInput(event)">4</button>
+            <button class="digit" onclick="addInput(event)">5</button>
+            <button class="digit" onclick="addInput(event)">6</button>
+            <button id="subtract-button" class="operator" onclick="addInput(event)">-</button>
         </div>
         <div>
-            <button onclick="addInput(event)">1</button>
-            <button onclick="addInput(event)">2</button>
-            <button onclick="addInput(event)">3</button>
-            <button onclick="addInput(event)">*</button>
+            <button class="digit" onclick="addInput(event)">1</button>
+            <button class="digit" onclick="addInput(event)">2</button>
+            <button class="digit" onclick="addInput(event)">3</button>
+            <button id="multiply-button" class="operator" onclick="addInput(event)">*</button>
         </div>
         <div>
-            <button onclick="addInput(event)">0</button>
-            <button onclick="addInput(event)">.</button>
-            <button onclick="equals(event)">=</button>
-            <button onclick="addInput(event)">/</button>
+            <button class="digit" onclick="addInput(event)">0</button>
+            <button id="decimal-button" onclick="addInput(event)">.</button>
+            <button id="equals-button" onclick="equals(event)">=</button>
+            <button id="divide-button" class="operator" onclick="addInput(event)">/</button>
         </div>
     </form>
     <section data-testid="recentResult" id="recentResult">

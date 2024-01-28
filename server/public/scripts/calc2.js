@@ -1,11 +1,46 @@
+let numOneEntered = false;
+let operatorEntered = false;
+let numTwoEntered = false;
+
 function addInput(event) {
     event.preventDefault();
     document.getElementById('inputBox').value += event.target.textContent;
+    if (!numOneEntered && event.target.classList.contains('digit')) {
+        numOneEntered = true;
+        document.getElementById('add-button').disabled = false;
+        document.getElementById('subtract-button').disabled = false;
+        document.getElementById('multiply-button').disabled = false;
+        document.getElementById('divide-button').disabled = false;
+    }
+    if (!operatorEntered && event.target.classList.contains('operator')) {
+        operatorEntered = true;
+        document.getElementById('add-button').disabled = true;
+        document.getElementById('subtract-button').disabled = true;
+        document.getElementById('multiply-button').disabled = true;
+        document.getElementById('divide-button').disabled = true;
+        document.getElementById('decimal-button').disabled = false;
+    }
+    if (operatorEntered && !numTwoEntered && event.target.classList.contains('digit')) {
+        numTwoEntered = true;
+        document.getElementById('equals-button').disabled = false;
+    }
+    if (event.target.id === 'decimal-button') {
+        document.getElementById('decimal-button').disabled = true;
+    }
 }
 
 function clearInput(event) {
     event.preventDefault();
     document.getElementById('inputBox').value = '';
+    document.getElementById('add-button').disabled = true;
+    document.getElementById('subtract-button').disabled = true;
+    document.getElementById('multiply-button').disabled = true;
+    document.getElementById('divide-button').disabled = true;
+    document.getElementById('equals-button').disabled = true;
+    document.getElementById('decimal-button').disabled = false;
+    numOneEntered = false;
+    operatorEntered = false;
+    numTwoEntered = false;
 }
 
 function equals(event) {
@@ -38,6 +73,15 @@ function equals(event) {
     }).then(function(response) {
         getCalculations();
         document.getElementById('inputBox').value = '';
+        document.getElementById('add-button').disabled = true;
+        document.getElementById('subtract-button').disabled = true;
+        document.getElementById('multiply-button').disabled = true;
+        document.getElementById('divide-button').disabled = true;
+        document.getElementById('equals-button').disabled = true;
+        document.getElementById('decimal-button').disabled = false;
+        numOneEntered = false;
+        operatorEntered = false;
+        numTwoEntered = false;
     }).catch(function(error){
         console.log('error', error);
     });
@@ -69,6 +113,11 @@ onReady();
 
 function onReady() {
     getCalculations();
+    document.getElementById('add-button').disabled = true;
+    document.getElementById('subtract-button').disabled = true;
+    document.getElementById('multiply-button').disabled = true;
+    document.getElementById('divide-button').disabled = true;
+    document.getElementById('equals-button').disabled = true;
 }
 
 function clearHistory(event) {
