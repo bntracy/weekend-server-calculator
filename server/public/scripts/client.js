@@ -17,7 +17,7 @@ function getCalculations() {
         // put the result on the DOM
         document.getElementById('resultHistory').innerHTML = '';
         for (let eachCalc of calculationHistory) {
-            document.getElementById('resultHistory').innerHTML += `<li>${eachCalc.numOne} ${eachCalc.operator} ${eachCalc.numTwo} = ${eachCalc.result}</li>`;
+            document.getElementById('resultHistory').innerHTML += `<li onclick="recalc(event, ${eachCalc.numOne}, ${eachCalc.numTwo}, '${eachCalc.operator}')">${eachCalc.numOne} ${eachCalc.operator} ${eachCalc.numTwo} = ${eachCalc.result}</li>`;
         }
         // display the most recent result, if there is one
         if (calculationHistory.length) {
@@ -112,6 +112,30 @@ function clearHistory(event) {
         document.getElementById('second-number').value = '';
         operator = '';
         document.getElementById('recentResult').innerHTML = '';
+    }).catch(function(error) {
+        console.log('error', error);
+    });
+}
+
+function recalc(event, numOne, numTwo, operator) {
+    event.preventDefault();
+    numOne = Number(numOne);
+    numTwo = Number(numTwo);
+    axios({
+        method: 'POST',
+        url: '/calculations',
+        data: {
+            numOne: numOne,
+            numTwo: numTwo,
+            operator: operator
+        }
+    }).then(function(response) {
+        // console.log('response is good', response);
+        getCalculations();
+        document.getElementById('first-number').value = '';
+        document.getElementById('second-number').value = '';
+        operator = '';
+
     }).catch(function(error) {
         console.log('error', error);
     });
