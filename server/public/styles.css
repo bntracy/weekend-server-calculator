@@ -37,3 +37,11 @@ h4 {
 section p {
     text-align: center;
 }
+
+.calculator div button {
+    font-family: monospace;
+}
+
+#inputBox {
+    margin-bottom: 0.5rem;
+}
