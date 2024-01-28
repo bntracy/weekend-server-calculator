@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Server-Side Calculator 2</title>
+    <script defer src="scripts/axios.js"></script>
+    <script defer src="scripts/calc2.js" charset="utf-8"></script>
+</head>
+<body>
+    <h1>Server-Side Calculator #2</h1>
+    <form>
+
+    </form>
+    <section data-testid="recentResult" id="recentResult">
+        <!-- The most recent calculation result goes here. -->
+    </section>
+  
+    <section data-testid="resultHistory" id="history">
+        <!-- The list of calculation results goes here. -->
+        <h4>Calculation History:</h4>
+        <ul id="resultHistory"></ul>
+        <div>
+            <button onclick="clearHistory(event)">Clear Calculation History</button>
+        </div>
+    </section>
+    
+</body>
+</html>

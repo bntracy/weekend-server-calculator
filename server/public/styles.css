@@ -33,3 +33,7 @@ ul {
 h4 {
     margin-bottom: 0;
 }
+
+section p {
+    text-align: center;
+}
