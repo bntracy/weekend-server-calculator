@@ -54,7 +54,12 @@ app.post('/calculations', function(req, res){
   });
 
   res.send(201);
-})
+});
+
+app.delete('/calculations', function(req, res){
+  calculations = [];
+  res.send(204);
+});
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:

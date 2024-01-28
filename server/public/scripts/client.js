@@ -97,4 +97,22 @@ function clearInputs(event) {
     event.preventDefault();
     document.getElementById('first-number').value = '';
     document.getElementById('second-number').value = '';
+    operator = '';
+}
+
+function clearHistory(event) {
+    event.preventDefault();
+    axios({
+        method: 'DELETE',
+        url: '/calculations'
+    }).then(function(response) {
+        // console.log('response is good', response);
+        getCalculations();
+        document.getElementById('first-number').value = '';
+        document.getElementById('second-number').value = '';
+        operator = '';
+        document.getElementById('recentResult').innerHTML = '';
+    }).catch(function(error) {
+        console.log('error', error);
+    });
 }
